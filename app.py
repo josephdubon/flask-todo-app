@@ -63,6 +63,27 @@ def delete_todo(id):
         return 'There was an issue deleting your task, try again. This should\'nt really happen.'
 
 
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update_todo(id):
+    todo = Todo.query.get_or_404(id)
+
+    if request.method == 'POST':
+        todo.content = request.form['content']
+
+        # try to delete
+        try:
+            db.session.commit()
+            return redirect('/')
+
+        # error handling
+        except:
+            return 'There was an issue updating your task, try again. This should\'nt really happen.'
+
+
+    else:
+        return render_template('update.html', todo=todo)
+
+
 # python defaults
 if __name__ == '__main__':
     app.run(debug=True)
