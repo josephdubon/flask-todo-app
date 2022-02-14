@@ -22,7 +22,8 @@ class Todo(db.Model):
 
 
 # give default route a place to live
-@app.route('/')
+# methods allow for data to POST and GET
+@app.route('/', methods=['POST', 'GET'])
 def index():
     return render_template('index.html')
 
