@@ -11,21 +11,29 @@
     <main id="content-wrap">
         <!-- section 1 -->
         <section>
-            <table>
 
-                <tr>
-                    <th>TODO</th>
-                    <th>Added</th>
-                    <th>Actions</th>
-                </tr>
-                {% for todo in todos %}
+            {% if todos|length < 1 %}
+                <h3 id="page-sub-title">There are currently no todo items to complete.</h3>
+                <br/>
+                <h4>Get started by adding one by using the form below.</h4>
+            {% else %}
+                <table>
                     <tr>
-                        <td>{{ todo.content }}</td>
-                        <td>{{ todo.date_created.date() }}</td>
-                        <td><a href="/delete/{{ todo.id }}">Delete</a> | <a href="">Update</a></td>
+                        <th>TODO</th>
+                        <th>Added</th>
+                        <th>Actions</th>
                     </tr>
-                {% endfor %}
-            </table>
+                    {% for todo in todos %}
+                        <tr>
+                            <td>{{ todo.content }}</td>
+                            <td>{{ todo.date_created.date() }}</td>
+                            <td class="button"><a href="/delete/{{ todo.id }}">Delete</a> or <a href="/update/{{ todo.id }}">Update</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+
             <br/>
 
             <form action="/" method="POST">
