@@ -44,3 +44,22 @@ table, th, td {
     padding: .5rem;
     border: .005em solid;
 }
+
+/* Start Here */
+
+#page-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem 0;
+}
+
+#content-wrap {
+    height: 90vh;
+}
+
+#footer {
+    align-self: center;
+}
