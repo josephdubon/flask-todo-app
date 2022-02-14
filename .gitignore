@@ -179,8 +179,6 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# SQLite
-*.db
 
 # Flask stuff:
 instance/
@@ -260,4 +258,5 @@ cython_debug/
 
 # add all
 /.idea/*
+
 !/test.db
