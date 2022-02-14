@@ -41,30 +41,77 @@ table {
     border-spacing: 0;
 }
 
-/* CSS RESET START */
+/* CSS RESET END */
 
 /*******************/
 
 /* Start Here */
 
+/* Root Variables */
+
+:root {
+    --main-bg-color: #121212;
+    --main-font-color: #DCDCDC;
+    --main-button-color: #5e92f5;
+    --alt-button-color: #395b9b;
+
+}
+
 /* Page Structure */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+/* Typography */
+
+#page-title {
+    font-weight: bolder;
+}
+
+#page-sub-title {
+    font-weight: lighter;
+}
+
+a:link, a:visited {
+    background-color: var(--main-button-color);
+    color: var(--main-font-color);
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover {
+    background-color: var(--alt-button-color);
+}
+
+a:active {
+    background-color: var(--main-button-color);
+}
+
+/* Flexbox */
+
 #page-container {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
     padding: 2rem 0;
 }
 
 #content-wrap {
-    height: 90vh;
+    padding-bottom: 2.5rem;
 }
 
 #footer {
+    background-color: var(--main-bg-color);
+    font-size: 1rem;
     align-self: center;
 }
-
 
 /* Custom Fonts */
 
@@ -76,35 +123,52 @@ table {
 
 input[type=text], select {
     width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 input[type=submit] {
-    width: auto;
+    width: 100%;
+    background-color: var(--main-button-color);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: var(--alt-button-color);
 }
 
 /* Table Styles */
 
 table {
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: normal;
     border: none;
     border-collapse: collapse;
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
-    background-color: white;
+    background-color: var(--main-bg-color);
 }
 
 td, th {
+    background-color: var(--main-bg-color);
     text-align: center;
     padding: 8px;
 }
 
 td {
     border-right: 1px solid #f8f8f8;
-    font-size: .9rem;
+    font-size: 1rem;
 }
 
 thead th {
