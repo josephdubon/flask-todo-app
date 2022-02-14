@@ -1,0 +1,39 @@
+{% extends'base.html' %}
+
+{% block title %}Update Todo{% endblock %}
+
+{% block body %}
+    <!-- title area -->
+    <header>
+        <h1 id="page-title">Update TODO Item</h1>
+    </header>
+    <!-- main content area -->
+    <main id="content-wrap">
+        <!-- section 1 -->
+        <section>
+            <table>
+
+                <tr>
+                    <th>TODO</th>
+                    <th>Added</th>
+                    <th>Actions</th>
+                </tr>
+                {% for todo in todos %}
+                    <tr>
+                        <td>{{ todo.content }}</td>
+                        <td>{{ todo.date_created.date() }}</td>
+                        <td><a href="/delete/{{ todo.id }}">Delete</a> | <a href="/update/{{ todo.id }}">Update</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <br/>
+            <form action="/update/{{ todo.id }}" method="POST">
+                <input type="text" name="content" id="content" value="{{ todo.content }}">
+                <input type="submit" value="Update">
+            </form>
+
+        </section>
+        <!-- section 2 -->
+    </main>
+    <footer id="footer">Built with Flask/Python and a lot of ❤️</footer>
+{% endblock %}
