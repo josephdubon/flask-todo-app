@@ -52,7 +52,7 @@ def index():
 def delete_todo(id):
     task_to_delete = Todo.query.get_or_404(id)
 
-    # try to delete todo
+    # try to delete
     try:
         db.session.delete(task_to_delete)
         db.session.commit()
