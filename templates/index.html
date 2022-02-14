@@ -22,7 +22,7 @@
                     <tr>
                         <td>{{ todo.content }}</td>
                         <td>{{ todo.date_created.date() }}</td>
-                        <td><a href="">Delete</a> | <a href="">Update</a></td>
+                        <td><a href="/delete/{{ todo.id }}">Delete</a> | <a href="">Update</a></td>
                     </tr>
                 {% endfor %}
             </table>
